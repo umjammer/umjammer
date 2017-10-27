@@ -4,7 +4,7 @@
 
 |javax.microedition.midlet.Midlet|com.nttdocomo.ui.IApplication|
 |:-------------------------------|:----------------------------|
-|Choic                           |ListBox(ListBox.CHECK\_BOX | ListBox.MULTI\_SELECTION)|
+|Choice                          |ListBox(ListBox.CHECK\_BOX | ListBox.MULTI\_SELECTION)|
 |TextField                       |TextBox                      |
 |TextField#set/getString         |TextBox#set/getText          |
 |STAR                            |Display.KEY\_ASTERISK        |
@@ -19,13 +19,15 @@
 ## android ##
 
 ### Info ###
-| |Java|android|
-|:|:---|:------|
-| |java.awt.Image|Bitmap |
-| |Graphics|Canvas |
-| |Graphics#drawImage|Canvas#drawBitmap|
+
+|Java|android|
+|:---|:------|
+|java.awt.Image|Bitmap |
+|Graphics|Canvas |
+|Graphics#drawImage|Canvas#drawBitmap|
 
   * MediaPlayer
+
 |type|status|
 |:---|:-----|
 |.au |NG    |
