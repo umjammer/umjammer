@@ -1,7 +1,7 @@
 # Install #
 
 ## Version ##
-```
+```shell
  # cat /proc/version
  Linux version 2.6.16 (root@sandwich.rd.scei.sony.co.jp) (gcc version 4.1.0 20060
  304 (Red Hat 4.1.0-3)) #1 SMP Thu Dec 7 18:19:02 JST 2006
@@ -99,7 +99,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 ### [firefox](http://www.mozilla-japan.org/products/firefox/) ###
 
   * アップデートしたら動いた
-```
+```shell
  # cd /usr/lib/firefox-1.5.0.10/plugins/
  # ln -s /usr/local/java/jre/bin/libjavaplugin_oji.so
 ```
@@ -244,7 +244,9 @@ AV プレイヤーとして使用することをコンセプトにインスト�
  pango-devel.ppc64
  xorg-x11-proto-devel.ppc
  xorg-x11-proto-devel.ppc64
+```
 
+```shell
  $ tar zxvf classpath-0.95.tar.gz
  $ cd classpath-0.95
  $ ./configure
@@ -259,14 +261,14 @@ AV プレイヤーとして使用することをコンセプトにインスト�
   * 使われる側がクライアント
   * サーバー側は双方リンク設定しないと帰ってこれない...orz
   * Host Name はいわゆる名前解決されるホスト名 IP アドレスで OK
-```
+```shell
  $ synergyc $SERVER_ADDRESS
 ```
   * おー、超便利！
 ### [Gnash](http://www.gnashdev.org/) ###
 
   * FSF の Flash プレーヤー
-```
+```shell
  # cd /lib/lib64
  # rm libexpat.so
  # ln -s ../../lib/libexpat.so.0.5.0 libexpat.so
@@ -300,7 +302,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 ### [Tritonus](http://tritonus.org/) ###
 
   * Java Sound が鳴らないので試し中だがちっとも鳴らない...
-```
+```shell
  $ aclocal
  $ autoconf
 
@@ -330,7 +332,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
   * [ここ](http://matsuu.blogspot.com/2007/02/playstation-3second-life-1.html)に触発されてやってみる
   * コンパイルに 10 時間くらいかかる...
     * スワップしまくりなのでクロスでコンパイルするのが吉
-```
+```shell
  $ export SLSRC=/usr/local/src/linden
  $ export OPENJPEG=/usr/local/src/OpenJpeg
  $ export ELFIO=/usr/local/src/ELFIO
@@ -399,7 +401,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
  $ scons DISTCC=no BTARGET=client BUILD=release MOZLIB=no
 ```
   * ~~あり？~~ ← -fPIC 付けまくって解決
-```
+```shell
  $ ( cd newview && LD_LIBRARY_PATH=../../libraries/powerpc-linux/lib_release_client:${LD_LIBRARY_PATH}  ./secondlife-powerpc-bin )
  ./secondlife-powerpc-bin: error while loading shared libraries: ../../libraries/
  powerpc-linux/lib_release_client/libelfio.so: R_PPC_REL24 relocation at 0x0ff8ee
@@ -416,7 +418,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
   * 手動で行う
     * カーネル
     * その他
-```
+```shell
  # rpm -ivhU --force --nodeps /mnt/cdrom/target/kernel-2.6.16-20070425.ppc64.rpm
  # cp /mnt/cdrom/target/initrd.img-2.6.16 initrd.img
 
@@ -436,7 +438,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 ### Mount iPod ###
 
   * iPod の調子が悪くてすぐに切れる...
-```
+```shell
  # mkdir /mnt/ipod
  # mount -r -t vfat /dev/sdf2 /mnt/ipod
 ```
@@ -444,12 +446,12 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 ### Mount Windows via Network ###
 
   * iPod もこれなら OK
-```
+```shell
  # mkdir /mnt/cifs1
  # mount -r -t cifs -o username=$USER_NAME,ip=$IP_ADDRESS,codepage=cp932,iocharset=utf8 //$PC_NAME/$PC_SHARED_DIR /mnt/cifs1
 ```
 ### Xconsole ###
-```
+```shell
  # visudo
  $ sudo xconsole &
 ```
@@ -464,11 +466,11 @@ AV プレイヤーとして使用することをコンセプトにインスト�
  # modprobe snd-virmidi index=1 # 要らん
 ```
   * timidity ダイレクトはほぼ完璧
-```
+```shell
  $ timidity -id -Os foo.mid
 ```
   * timidity サーバモードはパラメータの調節が必要(何で？？？)
-```
+```shell
  $ timidity -iA -Os --sequencer-ports=2 -EFresamp=1 EFreverb=n -q2.0/100 &
  $ cat /proc/asound/seq/clients
  :
@@ -477,19 +479,19 @@ AV プレイヤーとして使用することをコンセプトにインスト�
  $ pmidi -p 128:0 foo.mid
 ```
   * fluidsynth は重いのはダメ
-```
+```shell
  $ fluidsynth /usr/share/soundfonts/VintageDreamsWaves-v2.sf2 bar.mid
 ```
 # Result #
 
 結果です。IceWM 上で Audacious の音楽聴きながら Firefox で WEB サーフィンするくらいならぜんぜん快適です。
 
-[PS3Linux](http://picasaweb.google.co.jp/lh/photo/kkYqInr2UBJ8nQ9iWrWC0w?feat=directlink)
+![PS3Linux](https://photos.app.goo.gl/eTXOqOh6b7dPsUL93)
 
 うぉ、比較物がないので大きさが伝わらん(笑)。52 inch
 の 1920x1080 dot by dot の広大なスクリーンなのに...
 壁紙と Start アイコンは Sony のページから拝借。
-```
+```shell
  $ display -window root wallpaper.png
 
  $ convert start.png start.xpm
@@ -510,7 +512,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
     * ~~mkfont`*` で毎回上書きされる...orz~~
     * ~~reboot ？で毎回上書きされる...orz~~
       * kudzu スクリプトが書き換えてるみたい
-```
+```shell
  # mv /etc/X11/xorg.conf-vfb /etc/X11/xorg.conf-vfb.orig
 ```
   * audacious
@@ -538,7 +540,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 
   * ADDON 20070425
     * コピー残り
-```
+```shell
  # cp /etc/kudzu	   	$SYSIMAGE/etc/init.d
  # cp /etc/ワイヤレス
 ```
