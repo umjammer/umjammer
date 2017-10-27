@@ -3,7 +3,7 @@
 
 ## LodeRunner ##
 
-|**platform**|**version**|**result**|**comment**|
+|platform|version|result|comment|
 |:-----------|:----------|:---------|:----------|
 |Assembler   |i286 for PC-9801|●       |オリジナルをディスアセンブルしたもの|
 |C           |PC-9801 MS-DOS MSVC|●       |Assembler コードからハンドディスコンパイルしたもの|
@@ -57,8 +57,8 @@
   * javascript で汎用言語を作りました？
   * version 3.1
 
-| |Java|actionscript|
-|:|:---|:-----------|
+|**Category**|**Java**|**actionscript**|
+|:-------|:---|:-----------|
 |Constructor|`class Foo` → `Foo()`| `class Foo` → `function Foo()`|
 |2D array|`new foo[x][y];`|`new Array(x); for(...) array[x] = new Array(y);`|
 | |`System.currentTimeMills()`|`new Date().time`|
@@ -88,8 +88,8 @@
   * TODO
     * `<canvas/>`
 
-| |Java|JavaScript|
-|:|:---|:---------|
+|Category|Java|JavaScript|
+|:-------|:---|:---------|
 | |`class C {}`|`function C() {}`|
 | |`int foo(int bar) {}`|`C.prototype.foo = function(bar) {}`|
 
@@ -102,8 +102,8 @@
   * version 1.0
   * [参考](http://gihyo.jp/dev/serial/01/javafx/0003?page=1)
 
-| |Java|JavaFX|
-|:|:---|:-----|
+|Category|Java|JavaFX|
+|:-------|:---|:-----|
 |interface|`interface I`|`abstract class I`|
 | |`%` |` mod`|
 |bitwise|`& | ~` ...| `javafx.util.Bits.xxx()`|
@@ -124,8 +124,8 @@
   * ファイル名と違うクラスがインタプリタから参照されない？？？
     * コンパイルすれば OK っぽい
 
-| |Java|Groovy|
-|:|:---|:-----|
+|Category|Java|Groovy|
+|:-------|:---|:-----|
 |Method|`int foo(int bar) { ... }`|`int foo(bar) { ... }` |
 |定数|`static final int foo = 10`|`def foo = 10`|
 |クラス変数|`static int foo`|???   |
@@ -153,8 +153,8 @@
     * メソッド名の最初大文字許せない
   * version MS 3.5, mono 2.01
 
-| |Java|C#|
-|:|:---|:-|
+|Category|Java|C#|
+|:-------|:---|:-|
 |Ticks|`System.currentTimeMills()`|`DateTime.Now.Ticks // nano sec`|
 |Syntax|    |`switch` が fall down しない → `goto case` Label|
 |2D array|`array = new foo[x][y]`|`array = new foo[x][]; for (...) array[i] = new foo[y];`|
@@ -201,8 +201,8 @@
     * デコレータ
     * ダックタイピング
 
-| |Java|Python|
-|:|:---|:-----|
+|Category|Java|Python|
+|:-------|:---|:-----|
 |package|    |`＿init＿.py` を各ディレクトリに置く|
 | |`true`|`True`|
 | |`false`|`False`|
@@ -263,8 +263,8 @@
     * ちょっと手続き型に引っ張られ過ぎ感も否めない
   * version 2.7.2
 
-| |Java|Scala|
-|:|:---|:----|
+|Category|Java|Scala|
+|:-------|:---|:----|
 |interface|    |`trait`|
 |継承|`class C extends A, B implements I, J`|`class C extends A with B with I with J`|
 | |`final`|`val`|
@@ -339,8 +339,8 @@
   * version 1.8
   * v1.9 で早くなるらしい
 
-| |Java|Ruby|
-|:|:---|:---|
+|Category|Java|Ruby|
+|:-------|:---|:---|
 |package|    |??? |
 | |`interface`|~~`module` + 空メソッドで代用~~ 消す方がいいかも|
 | |`class A extends B`|`class A < B`|
