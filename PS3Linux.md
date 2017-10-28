@@ -486,7 +486,7 @@ AV プレイヤーとして使用することをコンセプトにインスト�
 
 結果です。IceWM 上で Audacious の音楽聴きながら Firefox で WEB サーフィンするくらいならぜんぜん快適です。
 
-![PS3Linux](https://photos.app.goo.gl/eTXOqOh6b7dPsUL93)
+![PS3Linux](https://lh3.googleusercontent.com/9LCfcqy9XHlfCukxI5GJfYrrhKKaON2szXjIjDJ88ZZH860Pti5qaShXvGHfOaGFGI6QGHFoHv2ZDtInFsJl-vmO6x3eVO0ZkmSugiriog9GfYRY4M8qFLE0D5vfH8QivRTq-I2p)
 
 うぉ、比較物がないので大きさが伝わらん(笑)。52 inch
 の 1920x1080 dot by dot の広大なスクリーンなのに...
