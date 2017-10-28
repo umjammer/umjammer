@@ -4,7 +4,7 @@
   * システムライブラリは自分の touch のイメージ Snowbird
   * たくさんあるがインストールマニアではない、すべて Java と gnash のための布石である。(quasi88 はオマケだけどね;-P)
   * after `llvm-gcc install`
-```
+```shell
  mv /usr/local/lib/{libstd++*,libiberty*} /usr/local/arm-apple-darwin/lib
 ```
 
@@ -47,7 +47,7 @@
     * ~~Jazelle 対応してるんかなぁ？~~
     * ~~↑してたらすげぇよなぁ、オープンソースで Jazelle 手に入るぞ！~~
     * ~~JBlend とか涙目？？？~~
-```
+```shell
  $ cp -rp src/os/bsd/arm src/os/darwin/ # 1.5.1 から要らない
  $ vi src/os/darwin/arm/callNative.S
  :28d
@@ -75,7 +75,7 @@
 ### [GNU classpath](http://www.gnu.org/software/classpath/) ###
   * version 0.96.1
   * jamvm の布石
-```
+```shell
  $ export CFLAGS=-DNDEBUG
  $ export LDFLAGS=-L$SNOWBIRD/usr/lib
  $ ./autogen.sh
@@ -91,7 +91,7 @@
   * gnash の布石
   * jsdl の布石
   * quasi88 の布石
-```
+```shell
  $ vi configure.in
  EXTRA_CFLAGS+=-DNDEBUG
  EXTRA_LDFLAGS+="-L$SNOWBIRD/usr/lib -liconv -lm -lobjc -framework CoreSurface -framework CoreFoundation -framework UIKit -framework GraphicsServices-framework CoreAudio -framework AudioToolbox"
@@ -110,7 +110,7 @@
   * thread 関連がうまく行ってなさそうな気がするのだが...
 
 ### SDL (iphone-sdl-mame の構造が変わった) ###
-```
+```shell
  $ svn checkout -r 81 http://iphone-sdl-mame.googlecode.com/svn/trunk
  $ export CFLAGS "-DDEPRECATED_IN_MAC_OS_X_VERSION_10_5_AND_LATER= \
                   -DAVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER_BUT_DEPRECATED_IN_MAC_OS_X_VERSION_10_5= \
@@ -120,7 +120,7 @@
 ```
 ### [libpng](http://www.libpng.org/pub/png/libpng.html) ###
   * SDL\_image の布石
-```
+```shell
  $ export LDFLAGS="-L$SNOWBIRD/usr/lib -L/usr/local/arm-apple-darwin/lib"
  $ ./autogen.sh
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin
@@ -132,7 +132,7 @@
   * SDL\_image の布石
   * shared がうまく作れん...
   * ./libtool を arm-apple-darwin にする
-```
+```shell
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin --enable-shared
  $ vi Makefile
  s/gcc/arm-apple-darwin-gcc/
@@ -150,7 +150,7 @@
 
 ### [libtiff](http://www.remotesensing.org/libtiff/) ###
   * SDL\_image の布石
-```
+```shell
  $ export CFLAGS=-DNDEBUG
  $ export LDFLAGS="-L/$SNOWBIRD/usr/lib -L/usr/local/arm-apple-darwin/lib"
  $ ./autogen.sh
@@ -160,7 +160,7 @@
 ```
 ### [SDL\_image](http://www.libsdl.org/projects/SDL_image/) ###
   * jsdl の布石
-```
+```shell
  $ export CFLAGS=-DNDEBUG
  $ export LDFLAGS=-L$SNOWBIRD/usr/lib -L/usr/local/arm-apple-darwin/lib -L/usr/local/lib -lSDLMain -framework UIKit
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin
@@ -171,7 +171,7 @@
 ### [freetype2](http://www.freetype.org/) ###
 
   * DL\_ttf の布石
-```
+```shell
  $ ./autogen.sh
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin
  $ make
@@ -180,7 +180,7 @@
 ### [SDL\_ttf](http://www.libsdl.org/projects/SDL_ttf/) ###
 
   * jsdl の布石
-```
+```shell
  $ export LIBS="-lSDLmain"
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin --with-freetype-prefix=/usr/local/arm-apple-darwin --with-sdl-prefix=/usr/local/arm-apple-darwin
  $ make
@@ -188,7 +188,7 @@
 ```
 ### [SDL\_mixer](http://www.libsdl.org/projects/SDL_mixer/) ###
   * jsdl の布石
-```
+```shell
  $ export LDFLAGS="-L/usr/local/arm-apple-darwin/lib -lstdc++"
  $ ./autogen.sh
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin --disable-music-mod --with-sdl-prefix=/usr/local/arm-apple-darwin --with-smpeg-prefix=/usr/local/arm-apple-darwin --disable-music-native-midi
@@ -199,7 +199,7 @@
 
   * jsdl の布石
   * shared が作れん...
-```
+```shell
  $ export SDL_CONFIG=/usr/local/arm-apple-darwin/bin/sdl-config
  $ ./autogen.sh
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin --disable-mmx
@@ -227,7 +227,7 @@
  patch-glmovie.c
  patch-smpeg.h
 ```
-```
+```shell
  $ export SDL_CONFIG=/usr/local/arm-apple-darwin/bin/sdl-config
  $ export LIBS=-L/usr/local/arm-apple-darwin/lib -lSDL -SDLmain -lstdc++ -lobjc -framework UIKit
  $ patch -p1 < *.patch
@@ -245,7 +245,7 @@
   * sdlawt の布石
   * ぐまー、これ古いのかよ！今は sdljava らしい...
   * makefile を arm-apple-darwin 対応に (x264 参照)
-```
+```shell
  $ vi makefile
   :
  $ vi jni/*.c
@@ -256,7 +256,7 @@
 
   * sdlawt の布石
   * Makefile を arm-apple-darwin に対応
-```
+```shell
  CFLAGS=-O3 -fPIC -ffast-math -DNDEBUG -falign-loops=16 -DARCH_ARM -SYS_MACOSX -fomit-frame-pointer -fno-common
  LDFLAGS=-Wl,-flat_namespace -Wl,-undefined -Wl,suppress
  JAVA_HOME=/usr/local/arm-apple-darwin/classpath
@@ -281,7 +281,7 @@
   * mount.cifs の布石
   * configure の /dev/random チェック、クロスで通らないからはずす
   * 要らんかった...orz → -DBIND\_8\_COMPAT
-```
+```shell
  $ vi configure
  disable /dev/random check for cross compiling
  $ vi lib/bind/configure
@@ -297,7 +297,7 @@
   * configure 中の smbmount, mount.cifs の linux チェックに darwin 追加
   * うーん、無理そう (include `linux/*.h` が鬼門)
     * touch に mount.hfs があったから作れるはずなんだけどね
-```
+```shell
  $ export CFLAGS="-DBIND_8_COMPAT -NDEBUG"
  $ export LDFLAGS="-L$SNOWBIRD/usr/lib -framework CoreFoundation"
  $ ./configure --host=arm-apple-darwin --enable-static --with-smbmount --with-cifsmount --without-utmp --with-readline --with-libiconv --without-krb5 
@@ -306,7 +306,7 @@
 
   * クロスで /usr/local にインストールする布石
   * samba がダメなら
-```
+```shell
  $ vi vi lib/helper.c
  #ifdef __APPLE__
  #include <sys/syslimits.h>
@@ -322,16 +322,16 @@
 
   * ~~画面の初期化でエラー終了~~
   * SDL device "iphone" を追加
-```
+```shell
  $ vi makefile
   :
  $ make
 ```
-  * [iPod touch](http://picasaweb.google.co.jp/lh/photo/ou7bEhzf9bysSfMt5wX8LA?feat=directlink)
+  * [iPod touch](https://lh3.googleusercontent.com/rb_GqG1h1ox58KHeDzwk8i8IeNStrAB3ON35rKvhzT68UBVjKpC1g_eWtbx27k_8Np3YG0LIxDyFj85yVvCxpnvdEuQwetA0O8vMrIgcyo_mtmH7nvp0Qpc2bZJ0YU0ovS9lXOzY)
 ### [lame](http://lame.sourceforge.net/index.php) ###
 
   * ffmpeg の布石
-```
+```shell
  $ vi libmp3lame/version.h
  s/LAME_RELEASE_VERSION ?/LAME_RELEASE_VERSION 2/
 
@@ -344,7 +344,7 @@
 ### [faad2](http://www.audiocoding.com/) ###
 
   * ffmpeg の布石
-```
+```shell
  $ ./configure --host=arm-apple-darwin --prefix=/usr/local/arm-apple-darwin
  $ make
  $ make install
@@ -353,7 +353,7 @@
 
   * ffmpeg の布石
   * なんか frontend で linker warning 出るけど使わないから無視
-```
+```shell
  $ bootstrap
  $ export CFLAGS=-DNDEBUG
  $ export LDFLAGS="-L/usr/local/arm-apple-darwin/Snowbird/usr/lib -L/usr/local/lib -L/usr/local/arm-apple-darwin/lib"
@@ -365,7 +365,7 @@
 
   * ffmpeg の布石
   * めんどくさ
-```
+```shell
  $ ./bootstrap
  $ ./configure \
     --host=arm-apple-darwin \
@@ -443,7 +443,7 @@ config.mak
   * 遅っ！
   * 本当は --arch=armv4 のはず、そうするとアセンブラでエラー → generic で我慢...
     * [ここ](http://www.wickedpsyched.net/iphone/media/ffmpeg/)は --arch=arm でやってるなぁ、Mac だと通るのかしら？
-```
+```shell
  $ ./configure \
   --extra-cflags="-DNDEBUG -I/usr/local/arm-apple-darwin/include" \
   --extra-ldflags="-L/usr/local/arm-apple-darwin/lib" \
@@ -475,7 +475,7 @@ config.mak
  $ make install
 ```
   * ffplay 動くけど何も映らん...
-```
+```shell
  $ vi config.mak
  SDL_LIBS = -lSDL -lSDLmain -framwork UIKit
  $ make ffplay
@@ -484,7 +484,7 @@ config.mak
 
   * gnash の布石
   * jam ってなんやねん... コンパイル大変だ...
-```
+```shell
  $ cp tools/build/v1/darwin-tools.jam tools/build/v1/arm-apple-darwin-tools.jam
  $ vi tools/build/v1/arm-apple-darwin-tools.jam
   :
