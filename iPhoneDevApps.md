@@ -327,7 +327,7 @@
   :
  $ make
 ```
-  * [iPod touch](https://lh3.googleusercontent.com/rb_GqG1h1ox58KHeDzwk8i8IeNStrAB3ON35rKvhzT68UBVjKpC1g_eWtbx27k_8Np3YG0LIxDyFj85yVvCxpnvdEuQwetA0O8vMrIgcyo_mtmH7nvp0Qpc2bZJ0YU0ovS9lXOzY)
+  ![iPod touch](https://lh3.googleusercontent.com/rb_GqG1h1ox58KHeDzwk8i8IeNStrAB3ON35rKvhzT68UBVjKpC1g_eWtbx27k_8Np3YG0LIxDyFj85yVvCxpnvdEuQwetA0O8vMrIgcyo_mtmH7nvp0Qpc2bZJ0YU0ovS9lXOzY)
 ### [lame](http://lame.sourceforge.net/index.php) ###
 
   * ffmpeg の布石
