@@ -1,0 +1,10 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Feb 23 15:09:01 PHT 2016
+http\://maven.restlet.org/.error=
+http\://maven.seasar.org/maven2/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1456211341899
+http\://maven.seasar.org/maven2/.lastUpdated=1456211325540
+http\://maven.restlet.org/.lastUpdated=1456211324658
+@default-codehaus-http\://repository.codehaus.org/.lastUpdated=1456211319692
+http\://repository.codehaus.org/.error=Could not transfer artifact fobs4jmf\:fobs4jmf\:jar\:0.4.0-vavi from/to codehaus (http\://repository.codehaus.org/)\: repository.codehaus.org
+https\://repo.maven.apache.org/maven2/.error=
