@@ -45,4 +45,4 @@
   * ついでに iαppli にも移植してみた(左上)
     * DOJA は android に比べると J2SE に近いね
 
-![http://lh5.ggpht.com/_JchUHfE3WF4/SnAFap3KEcI/AAAAAAAAAGQ/fTDNz5Uw_Lo/s288/android.lr.png](http://lh5.ggpht.com/_JchUHfE3WF4/SnAFap3KEcI/AAAAAAAAAGQ/fTDNz5Uw_Lo/s288/android.lr.png)
+![](https://camo.githubusercontent.com/fbf1639a015277084756e3c4cc1fd0143fbe26e1/687474703a2f2f6c68352e67677068742e636f6d2f5f4a636855486645335746342f536e41466170334b4563492f41414141414141414147512f6654444e7a3555775f4c6f2f733238382f616e64726f69642e6c722e706e67)
