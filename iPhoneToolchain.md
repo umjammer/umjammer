@@ -1,9 +1,9 @@
-# Development Environment #
+# Development Environment
 
-## Building Development Environment ##
-### w/ cygwin, Windows XP ###
+## Building Development Environment
+### w/ cygwin, Windows XP
   * vfdecrypt (for cygwin latest ~~download~~)
-```
+```shell
  $ gcc vfdecrypt.c -lcrypto -o vfdecrypt.exe
  $ vfdecrypt -i xxx-yyyy-z.dmg -o decrypted-a.b.c.dmg -k key
 ```
@@ -28,30 +28,35 @@
     * [HFSExplorer](http://hem.bredband.net/catacombae/hfsx.html) フリーであるやんけ！それも一番性能いいし、Java やし
       * シンボリックリンクも問題なし！
 
-### [XCode](http://developer.apple.com/tools/download/) ###
+### [XCode](http://developer.apple.com/tools/download/)
   * .pkg
     * [xar](http://code.google.com/p/xar/)
       * libxml2, libxml2 devel ... cygwin
 
   * build
-> .so -> .dll
-> include/config.h comment out acl
-    * extract
-```
+
+.so -> .dll
+
+include/config.h comment out acl
+
+* extract
+```shell
  $ xar -xvf foo.pkg
 ```
-  * Payload
+* Payload
 ```
  gunzip -c Payload | cpio -i
 ```
-    * cygwin はファイル名 260 までらしいし、XacRett, 7z はうまく動かんし、ったく Windows アプリは...
-    * ダメな場合は Linux で
-    * ドキュメントの長ーいファイル名は Windows に対する嫌がらせかw
-### [iPhone SDK](http://developer.apple.com/iphone/) ###
+
+* cygwin はファイル名 260 までらしいし、XacRett, 7z はうまく動かんし、ったく Windows アプリは...
+* ダメな場合は Linux で
+* ドキュメントの長ーいファイル名は Windows に対する嫌がらせかw
+
+### [iPhone SDK](http://developer.apple.com/iphone/)
 
   * User Agent 偽装で OK
 
-### w/ Mac OS X 10.5.5 ###
+### w/ Mac OS X 10.5.5
 
 |version|code|ipsw|dmg|key|
 |:------|:---|:---|:--|:--|
@@ -63,7 +68,7 @@
     * リストアでもエラー 21
     * WinPwn2.1 を素直に使おう
 
-## Runtime Environment ##
-### ARM Emulator ###
+## Runtime Environment
+### ARM Emulator
 
   * http://www.skyeye.org/index.shtml
