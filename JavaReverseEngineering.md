@@ -523,12 +523,12 @@ Eclipse のリファクタリング機能がこれほど活躍できる場面は
       
       ... {
          if (a.a != null) { ... // compiler recognizes class b's field a (class Foo) 's field a,
-                                     // but real source was class a's static field a
+                                // but real source was class a's static field a
       }
    }
 ```
 
-まあ [Anti Obfuscation](http://code.google.com/p/umjammer/wiki/JavaReverseEngineering?ts=1316976443&updated=JavaReverseEngineering#Anti_Obfuscation) しておけばいらない苦労だったんだけどね。
+まあ [Anti Obfuscation](https://github.com/umjammer/umjammer/blob/wiki/JavaReverseEngineering.md#anti-obfuscation) しておけばいらない苦労だったんだけどね。
 
 ## 辞書の活用 ##
 
