@@ -25,17 +25,17 @@
         * jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような
       * CUI がない
 
-> jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う
+jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う
 
 # How To #
 
-> 面倒になるのが同じ文字で大文字、小文字のクラス名に難読化されている場合、ファイルシステムが対応してないとか、Eclipse が判別してくれないとかあるのでそれを解除する。
+面倒になるのが同じ文字で大文字、小文字のクラス名に難読化されている場合、ファイルシステムが対応してないとか、Eclipse が判別してくれないとかあるのでそれを解除する。
 
-> あとメソッドのオーバーロードのバインディングミスも発見しづらいので最初に回避するようにしておく
+あとメソッドのオーバーロードのバインディングミスも発見しづらいので最初に回避するようにしておく
 
 ## Anti Obfuscation ##
 
-> 難読化を解除するために難読化ツールを使用する。
+難読化を解除するために難読化ツールを使用する。
 
   * [ProGuard](http://proguard.sourceforge.net/)
     * method overload を積極的にしているのを解除する (-useuniqueclassmembernames)
@@ -66,7 +66,7 @@
     * あとは好みのフォーマットオプション
       * TODO -noctor
 
-```
+```shell
  $ find . -name \*.class -exec jad -s .java -safe -space -r -nonlb -ff {} \;
 ```
 
@@ -77,7 +77,7 @@
   * パターンでわかる
 
 
-```
+```java
         i = 0;
           goto _L1
 _L3:
@@ -91,7 +91,7 @@ _L2:
 
 ```
 
-```
+```java
 
     for (i = 0; i < 10; i++) {
         :
@@ -116,7 +116,7 @@ TODO
 
   * exception 処理っぽいところで同じコードが何回も出てきたらそれは finally 節
 
-```
+```java
         break MISSING_BLOCK_LABEL_43;
         Exception exception;
         exception;
@@ -126,7 +126,7 @@ TODO
         return;
 ```
 
-```
+```java
         } catch (Exception exception) {
         } finally {
             a.c();
@@ -137,7 +137,7 @@ TODO
 
   * 人力ではキツイので JD に頼る
 
-```
+```java
         a;
         JVM INSTR tableswitch -1 6: default 523
     //                   -1 523
@@ -155,7 +155,7 @@ _L2:
 
 手動でやる場合はこういう感じ
 
-```
+```java
         switch (a) {
 //        JVM INSTR tableswitch -1 6: default 523     _L1
     //                   -1 523                       _L1
@@ -206,7 +206,7 @@ _L2:
 
   * パターンでわかる
 
-```
+```java
         Object obj = foo;
         JVM INSTR monitorenter ;
           :
@@ -215,7 +215,7 @@ _L2:
         throw ;
 ```
 
-```
+```java
     synchronized(foo) {
         :
     }
@@ -228,7 +228,7 @@ _L2:
   * コンパイラが作成したと思われる static メソッドをインライン化する (access$# ってやつね)
 
 
-```
+```java
     
         foo.addActionListener(new g(this));
 
@@ -255,7 +255,7 @@ _L2:
 
 ```
 
-```
+```java
         foo.addActionListener(new g());
 
       :
@@ -275,7 +275,7 @@ _L2:
 
 さらに進めて
 
-```
+```java
         foo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionevent) {
                 System.out.println("");
@@ -287,7 +287,7 @@ _L2:
 
   * 表記が変なので直す
 
-```
+```java
         a = (new Class[] {
             0,
             java/lang/String,
@@ -299,7 +299,7 @@ _L2:
         });
 ```
 
-```
+```java
         a = (new Class[] {
             null,
             java.lang.String.class,
@@ -315,11 +315,11 @@ _L2:
 
   * StringBuilder、StringBuffer を消す
 
-```
+```java
   System.err.println((new StringBuilder("value: ")).append(value).toString());
 ```
 
-```
+```java
   System.err.println("value: " + value);
 ```
 
@@ -337,11 +337,11 @@ _L2:
   * 人が書いた数値に戻す
   * Math.PI 等
 
-```
+```java
     double d1 = 0.29999999999999999D;
 ```
 
-```
+```java
     double d1 = 0.3d;
 ```
 
@@ -360,7 +360,7 @@ _L2:
   * enum の引数関連は残す
   * あと他の場所では static フィールドに設定されているフィールド名が使用されているため~~分かるように残して~~それを残して後でリネーム出来るようにしておく
 
-```
+```java
     public static final class Foo extends Enum {
 
         private static final Foo lM[];
@@ -405,7 +405,7 @@ _L2:
 ```
 
 NG
-```
+```java
     public static enum Foo {
 
         AAA(0), // lO
@@ -424,7 +424,7 @@ NG
     }
 ```
 BETTER
-```
+```java
     public static enum Foo {
 
         lO(0), // AAA
@@ -445,7 +445,7 @@ BETTER
 
 ### assert ###
 
-```
+```java
     package buz.bar;
     class Foo {
 
@@ -468,13 +468,13 @@ BETTER
         }
 ```
 
-```
+```java
           assert foo != 0 : "assertion message";
 ```
 
 ### annotation ###
 
-```
+```java
 import java.lang.annotation.Annotation;
 
 public interface UiThread
@@ -484,7 +484,7 @@ public interface UiThread
 }
 ```
 
-```
+```java
 public @interface UiThread {
 }
 ```
@@ -498,7 +498,7 @@ Eclipse のリファクタリング機能がこれほど活躍できる場面は
 
 慣れてくると、ああこれ jad のソースだとわかるようになる。例えば [jflash](http://java.net/projects/jflash/sources/svn/content/trunk/prj/jflash/src/org/jflash/DisplayList.java?rev=38) の 508 行目とか [local variables created by compiler](https://code.google.com/p/umjammer/wiki/JavaReverseEngineering?ts=1388518694&updated=JavaReverseEngineering#local_variables_created_by_compiler) に相当するのがわかる。それ以前に変数名でわかっちゃうけどね。よくもまあ抜け抜けとリバエンしたやつをメジャーサイトに公開するよなぁ？
 
-# ~~Todo~~ #
+# Todo
 
 ## やってしまったソース ##
 オーバーロードでミスる事を知らなかったときにリバエンした 50000 行くらいのコードがあるのだが、もちろんエラーは出ないし、なんとちゃんと動いてしまってるので、どこでミスってるのかが簡単に検出できない。結果のデータが違うので明らかにミスっているのは分かるのだが、~~どうしたものか...~~
@@ -509,7 +509,7 @@ Eclipse のリファクタリング機能がこれほど活躍できる場面は
 
 オーバーロードのミスより、名前の優先順位が定数より変数が勝つみたいなのでそこがミスっていた。null と比較とかだとエラーにならない場合が出てくる。
 
-```
+```java
    class Foo {
       Bar a;
    }
