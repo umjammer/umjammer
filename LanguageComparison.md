@@ -65,7 +65,7 @@
 | |`byte[]`|`flash.utils.ByteArray`|
 
   * IO (AIR のみの気がする)
-```
+```actionscript
  var file:FileStream = new FileStream();
  file.open(new File(mapName), FileMode.READ);
  file.position = level * 0x200;
@@ -106,7 +106,7 @@
 |:-------|:---|:-----|
 |interface|`interface I`|`abstract class I`|
 | |`%` |` mod`|
-|bitwise|`& | ~` ...| `javafx.util.Bits.xxx()`|
+|bitwise|`&` | `~` ...| `javafx.util.Bits.xxx()`|
 | |`System.err.println("foo: " + bar);`|`println("foo: {bar}");`|
 
   * IDE
@@ -158,15 +158,15 @@
 |Ticks|`System.currentTimeMills()`|`DateTime.Now.Ticks // nano sec`|
 |Syntax|    |`switch` が fall down しない → `goto case` Label|
 |2D array|`array = new foo[x][y]`|`array = new foo[x][]; for (...) array[i] = new foo[y];`|
-|IO|    |`using (...)` `*`1|
+|IO|    |`using (...)` <sup>*1</sup>|
 |Thread Switching|`Thread.yield()`|`Thread.Sleep(0) // milli sec`|
-|Library Dependency|`-cp foo.jar`|`*`2 `App.exe.Config`|
-| |`System.out.println("foo:" + bar)`|`Console.WriteLine("foo {0}"，bar.ToString())`|
-|Comment|`/** ... */`|` ///`|
+|Library Dependency|`-cp foo.jar`| <sup>*2</sup> `App.exe.Config`|
+| |`System.out.println("foo:" + bar)`|`Console.WriteLine("foo {0}"， bar.ToString())`|
+|Comment|`/** ... */`|`///`|
 
   1. IO というよりリソースクロージングのための構文糖衣みたい
   1. ([ここ](http://support.microsoft.com/kb/837908/ja) に書いてあるがまさに「日本語でOK」状態...)
-```
+```xml
  <?xml version="1.0" encoding="utf-8"?>
  <configuration>
   <runtime>
@@ -207,8 +207,8 @@
 | |`true`|`True`|
 | |`false`|`False`|
 | |`null`|`None`|
-| |` && ` `|``|` ` !`| `and or not`|
-| |` ++ --`|無い|
+| | `&&` `||` `!` | `and or not`|
+| |`++ --`|無い|
 | |`switch ... case ...`|無い|
 |Method|`int foo(int bar) { ... }`|`def foo(self，bar):`|
 | |`if (C1) ... else if (C2) ... else ...`| `if C1: ... elif C2: ... else: ...`|
@@ -241,14 +241,14 @@
 |awt|    |`Component#graphics` のオーバーライドに注意|
 
   * バイナリ IO
-```
+```python
  file = open("/foo/path/", "rb")
  file.seek(0x200)
  arr = array('b', file.read(0x200))
  file.close()
 ```
   * 例外処理
-```
+```python
  try:
    ...
  except:
@@ -272,7 +272,7 @@
 | |`byte`|`Byte`|
 | |`char` |`Char`|
 | |`byteValue = (byte) integerValue`| `byteValue = integerValue.asInstanceOf[Byte]`|
-|keyword重複|無し|`Thread.```````yield```````()`|
+|keyword重複|無し|`Thread.``yield``()`|
 |Method|`int foo(int bar) { ... }`|` def foo(bar:Int):Int { ... }`|
 |型指定宣言|`byte b = 0`|`var b:Byte = 0`|
 |配列|`array[index]`| `array(index)`|
@@ -282,18 +282,18 @@
 | |`for (int i = 0; i < 10; i++)`| `for (i <- 0 until 10)`|
 | |`for (int i = 9; i >= 0; i--)`| `for (i <- 9 to 0 by -1)`|
 | |`for (int i = 0; i <= 10; i++)`| `for (i <- 0 to 10)`|
-| |`break/continue`|無し`*`1|
+| |`break/continue`|無し<sup>*1</sup>|
 | |`C ? T : F`|`if (C) T else F`|
-|例外処理|    |`*`2 |
+|例外処理|    |<sup>*2</sup> |
 |Constructor|    |`def this(foo:Foo)`|
 |array|`byte[][] a = new byte[3][4]`|`a:Array[Array[Byte]] = new Array(3); for (i <- 0 until 3) a[i] = new Array(4);`|
 | |`byte[] a = new byte[0x200]`|`var a = new Array[Byte](0x200)`|
 | |`byte[] a = { 1，2，3 }`|    `val a:Array[Int] = Array(1，2，3)`|
 | |`System.err.println("foo: " + bar)`|`printf("foo:｛0｝"，bar)`|
-|main|    |`*`3 |
+|main|    |<sup>*3</sup> |
 
   1. break, continue の代わり(ホントはちゃんと関数言語らしく書くべき)
-```
+```scala
  class Continue extends Exception {
  }
  var LOOP = true
@@ -314,16 +314,16 @@
    }
  }
 ```
-  1. 例外処理
-```
+  2. 例外処理
+```scala
  try {
  
  } catch {
    case e:Exception =>
  }
 ```
-  1. main
-```
+  3. main
+```scala
  object Main {
    def main(args: Array[String]) {
    }
@@ -372,13 +372,13 @@
 | |`System.err.println("foo: " + bar)`|`puts "foo: #{bar}`"|
 
   * 同じディレクトリのファイルの取り込み
-```
+```ruby
  $: << File.dirname(__FILE__)
  require "FileName"
 ```
   * Constructor
-    * Java
-```
+Java
+```java
  class A {
    int a;
    A(int a) {
@@ -386,8 +386,8 @@
    }
  }
 ```
-    * Ruby
-```
+Ruby
+```ruby
  class A
    attr :a
    def initialize(a)
@@ -396,8 +396,8 @@
  end
 ```
   * 例外処理
-    * Java
-```
+Java
+```java
  try {
    ...
  } catch (E e) {
@@ -406,8 +406,8 @@
    ...
  }
 ```
-    * Ruby
-```
+Ruby
+```ruby
  begin
    ...
  rescue E => e
@@ -419,7 +419,7 @@
   * IDE
     * [RDT](http://update.aptana.com/update/rdt/3.2/) ... たまに重くなる
     * ruby-debug-ide がデフォルトではうまくインストールされないので以下を実行
-```
+```shell
  $ jruby -S gem install jruby-openssl
  $ curl 'http://rubyforge.org/frs/download.php/47154/ruby-debug-base-z.y.z-java.gem'
  $ jruby -S gem install ruby-debug-base-x.y.z-java.gem
@@ -428,7 +428,7 @@
 ```
   * loop という関数を定義していてはまった...orz
     * 移植時には先言語のキーワードに注意することを忘れないようにしないと
-```
+```ruby
  def loop
    ...
  end
@@ -438,12 +438,12 @@
  end
 ```
   * C からの移植で宣言をそのままにしない
-    * C
-```
+C
+```c
  int a = 0, int b = 0, int c = 0
 ```
-    * Ruby
-```
+Ruby
+```ruby
  a = 0, b = 0, c = 0 # 意図したものと違う評価
 ```
 
