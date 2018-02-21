@@ -16,7 +16,7 @@
 
 ### [HelloApplication](http://iphone.fiveforty.net/wiki/index.php/UIKit_Hello_World) ###
 開発環境構築に苦労したわりにはあっさり動きやがった...
-[iPod touch](http://picasaweb.google.co.jp/lh/photo/Gz0Sdjz65_OtT7qO_fhipg?feat=directlink)
+![iPod touch](https://lh3.googleusercontent.com/pFKSrFy0_eXhcNXbTJJxR_atKABMJkQMqBbw3In5bzcS9I4tL_sX0L_h7ibV-268yowx1fKGWQ8tXDCqmz3gMbyxe889WPtIEmyQTyt8qdUy7EN2ly2vA-bAwdjDW6NmJyTz8IH8)
 
 ### [lv](http://www.ff.iij4u.or.jp/~nrt/lv/) ###
   * version 4.51
