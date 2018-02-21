@@ -1,23 +1,23 @@
 
-# Tools #
+# Tools
 
   * [jad](http://www.varaneckas.com/jad) (1.5.8g)
     * 長所
       * 今のところ最強
     * 短所
-      * Exception 周りが下手、finally は絶望的
-      * switch もダメダメ
-      * for, while の扱いが逆なんじゃない？
-        * 2重ループ、if ... else if ... else ... とかも弱い
+      * `Exception` 周りが下手、`finally` は絶望的
+      * `switch` もダメダメ
+      * `for`, `while` の扱いが逆なんじゃない？
+        * 2重ループ、`if` ... `else if` ... `else` ... とかも弱い
       * inner class もちょっとおかしい
-      * synchronize もダメ
-      * enum 超面倒
+      * `synchronize` もダメ
+      * `enum` 超面倒
       * 開発終了？
 
-  * [JD](http://java.decompiler.free.fr/) (core 0.6.0)
+  * [JD](http://jd.benow.ca/) (core 1.4.0)
     * 長所
-      * Exception はまあまあ
-      * switch も~~まあまあ~~* break が抜けてる気がするのだが
+      * `Exception` はまあまあ
+      * `switch` も~~まあまあ~~* `break` が抜けてる気がするのだが
         * できない場合も多いな
       * 開発中
     * 短所
@@ -25,23 +25,26 @@
         * jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような
       * CUI がない
 
-jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う
+~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~
 
-# How To #
+JD-GUI 1.4.0 だと jad を超えた感じがある。エラーが有ると空白を出力しやがるのでそこは jad で。
+
+# How To
 
 面倒になるのが同じ文字で大文字、小文字のクラス名に難読化されている場合、ファイルシステムが対応してないとか、Eclipse が判別してくれないとかあるのでそれを解除する。
 
 あとメソッドの[オーバーロードのバインディングミス](https://github.com/umjammer/umjammer/blob/wiki/JavaReverseEngineering.md#%E3%82%84%E3%81%A3%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%9F%E3%82%BD%E3%83%BC%E3%82%B9)も発見しづらいので最初に回避するようにしておく
 
-## Anti Obfuscation ##
+## Anti Obfuscation
 
 難読化を解除するために難読化ツールを使用する。
 
   * [ProGuard](http://proguard.sourceforge.net/)
-    * method overload を積極的にしているのを解除する (-useuniqueclassmembernames)
-    * クラス名に同じ文字の大文字、小文字を許容するも解除 (-dontusemixedcaseclassnames)
-    * 難読化されていないパッケージ、クラス名は保存しておく (-keeppackagenames, -keepnames)
+    * method overload を積極的にしているのを解除する (`-useuniqueclassmembernames`)
+    * クラス名に同じ文字の大文字、小文字を許容するも解除 (`-dontusemixedcaseclassnames`)
+    * 難読化されていないパッケージ、クラス名は保存しておく (`-keeppackagenames`, `-keepnames`)
 
+proguard.txt
 ```
 -dontshrink
 -dontoptimize
@@ -58,25 +61,29 @@ jad で最初逆コンパイルしておかしいところを JD で補完して
 -keepnames class your.packages.**
 ```
 
-## Decompile ##
+```shell
+$ proguard.sh @proguard.txt -injars in.jar -outjar out.jar
+```
+
+## Decompile
 
   * jad
-    * オーバーロードのバインドミスを無くすために -safe オプションを付ける
+    * オーバーロードのバインドミスを無くすために `-safe` オプションを付ける
       * 難読化されていない場合はしなくても多分大丈夫
     * あとは好みのフォーマットオプション
-      * TODO -noctor
+      * TODO `-noctor`
 
 ```shell
  $ find . -name \*.class -exec jad -s .java -safe -space -r -nonlb -ff {} \;
 ```
 
-## Hand Completion ##
+## Hand Completion
 
-### for ###
+### for
 
   * パターンでわかる
 
-
+jad
 ```java
         i = 0;
           goto _L1
@@ -91,6 +98,7 @@ _L2:
 
 ```
 
+completed
 ```java
 
     for (i = 0; i < 10; i++) {
@@ -98,24 +106,25 @@ _L2:
     }
 ```
 
-### for (iterable) ###
+### for (iterable)
 TODO
-### while ###
+### while
 TODO
-### else if ###
+### else if
 TODO
-### break/continue ###
+### break/continue
 
 TODO
 
-### exception ###
+### exception
 
   * 何となく分かる、try がどこに入るのかがいまいちよくわからない
 
-### finally ###
+### finally
 
   * exception 処理っぽいところで同じコードが何回も出てきたらそれは finally 節
 
+jad
 ```java
         break MISSING_BLOCK_LABEL_43;
         Exception exception;
@@ -126,6 +135,7 @@ TODO
         return;
 ```
 
+completed
 ```java
         } catch (Exception exception) {
         } finally {
@@ -133,10 +143,11 @@ TODO
         }
 ```
 
-### switch ###
+### switch
 
   * 人力ではキツイので JD に頼る
 
+jad
 ```java
         a;
         JVM INSTR tableswitch -1 6: default 523
@@ -202,10 +213,11 @@ _L2:
   * case 値の JVM code の行番号も参考に
     * switch 文より前にある場合とか発狂しそう
 
-### synchronized ###
+### synchronized
 
   * パターンでわかる
 
+jad
 ```java
         Object obj = foo;
         JVM INSTR monitorenter ;
@@ -215,19 +227,20 @@ _L2:
         throw ;
 ```
 
+completed
 ```java
     synchronized(foo) {
         :
     }
 ```
 
-### inner class ###
+### inner class
 
   * コンストラクタで super の場所が間違ってるので直す。
   * 親クラス参照を消す
   * コンパイラが作成したと思われる static メソッドをインライン化する (access$# ってやつね)
 
-
+jad
 ```java
     
         foo.addActionListener(new g(this));
@@ -255,6 +268,7 @@ _L2:
 
 ```
 
+completed
 ```java
         foo.addActionListener(new g());
 
@@ -283,10 +297,11 @@ _L2:
         });
 ```
 
-### class ###
+### class
 
   * 表記が変なので直す
 
+jad
 ```java
         a = (new Class[] {
             0,
@@ -299,6 +314,7 @@ _L2:
         });
 ```
 
+completed
 ```java
         a = (new Class[] {
             null,
@@ -315,10 +331,12 @@ _L2:
 
   * StringBuilder、StringBuffer を消す
 
+jad
 ```java
   System.err.println((new StringBuilder("value: ")).append(value).toString());
 ```
 
+completed
 ```java
   System.err.println("value: " + value);
 ```
@@ -337,10 +355,12 @@ _L2:
   * 人が書いた数値に戻す
   * Math.PI 等
 
+jad
 ```java
     double d1 = 0.29999999999999999D;
 ```
 
+completed
 ```java
     double d1 = 0.3d;
 ```
@@ -360,6 +380,7 @@ _L2:
   * enum の引数関連は残す
   * あと他の場所では static フィールドに設定されているフィールド名が使用されているため~~分かるように残して~~それを残して後でリネーム出来るようにしておく
 
+jad
 ```java
     public static final class Foo extends Enum {
 
@@ -445,6 +466,7 @@ BETTER
 
 ### assert ###
 
+jad
 ```java
     package buz.bar;
     class Foo {
@@ -468,12 +490,14 @@ BETTER
         }
 ```
 
+completed
 ```java
           assert foo != 0 : "assertion message";
 ```
 
 ### annotation ###
 
+jad
 ```java
 import java.lang.annotation.Annotation;
 
@@ -484,6 +508,7 @@ public interface UiThread
 }
 ```
 
+completed
 ```java
 public @interface UiThread {
 }
