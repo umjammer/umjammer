@@ -2,7 +2,7 @@
 
 System Software Update v2.50 以降 AVCHD がディスク以外から？再生されなくなりました。よって終了〜
 
-  * [MP3 再生のソース](http://code.google.com/p/umjammer/source/browse/trunk/vavi-sound-bdj)まで書いたのに...
+  * [MP3 再生のソース](https://github.com/umjammer/vavi-sound-bdj)まで書いたのに...
 
 ## PS3 ##
 
@@ -52,9 +52,10 @@ System Software Update v2.50 以降 AVCHD がディスク以外から？再生�
 
 ![http://lh5.ggpht.com/_JchUHfE3WF4/SnAFa-21XII/AAAAAAAAAGU/eepnqPx_7vk/s288/BD-J.2008082323530000.png](http://lh5.ggpht.com/_JchUHfE3WF4/SnAFa-21XII/AAAAAAAAAGU/eepnqPx_7vk/s288/BD-J.2008082323530000.png)
 
-  * [Apple II Emulator](http://code.google.com/p/umjammer/source/browse/trunk/vavi-games-appleii-bdj) - [My Blog](http://vavivavi.blogspot.com/2008/09/bd-j-appleii-emulator-bd-j-nes-apple-ii.html) [PS3 NEWS](http://www.ps3news.com/forums/playstation-3-news/playstation-3-bd-j-apple-ii-emulator-released-100986.html)
-  * [2ch Browser](http://code.google.com/p/umjammer/source/browse/trunk/vavi-apps-mona-bdj) - [My Blog](http://vavivavi.blogspot.com/2008/09/blog-ps3-homebrew-bd-j-2ch-ps3-bd-j-2ch.html)
-  * [Tetris](http://code.google.com/p/umjammer/source/browse/trunk/vavi-games-tetris-bdj)
+  * [Apple II Emulator](https://github.com/umjammer/vavi-apps-appleii-bdj) - [My Blog](http://vavivavi.blogspot.com/2008/09/bd-j-appleii-emulator-bd-j-nes-apple-ii.html) [PS3 NEWS](http://www.ps3news.com/forums/playstation-3-news/playstation-3-bd-j-apple-ii-emulator-released-100986.html)
+  * [2ch Browser](https://github.com/umjammer/vavi-apps-mona-bdj) - [My Blog](http://vavivavi.blogspot.com/2008/09/blog-ps3-homebrew-bd-j-2ch-ps3-bd-j-2ch.html)
+  * [Tetris](https://github.com/umjammer/vavi-games-tetris-bdj)
+  * [PuyoPuyo](https://github.com/umjammer/vavi-games-puyo-bdj)
 
 ### xletview ###
 
