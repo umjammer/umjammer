@@ -4,6 +4,7 @@
   * [jad](http://www.varaneckas.com/jad) (1.5.8g)
     * 長所
       * ~今のところ最強~
+      * バイトコードをコメントで入れられる
     * 短所
       * `Exception` 周りが下手、`finally` は絶望的
       * `switch` もダメダメ
@@ -16,6 +17,7 @@
 
   * [JD](http://java-decompiler.github.io/) (core 1.0.0)
     * 長所
+      * 行番号を考慮できる
       * `Exception` はまあまあ
       * `switch` も~~まあまあ~~
         * `break` が抜けてる気がするのだが
@@ -26,6 +28,13 @@
         * jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような
         * synchronized
         * switch に return 抜けあり
+      * for 糖衣構文
+      * local 変数重複、宣言場所
+      * 総称型
+      * inner class constructor
+      * inner class 外部変数参照
+      * static final 定数戻し
+      * enum function
       * CUI がない
       * ソースがない
 
@@ -34,9 +43,16 @@
       * 最強か？
       * Java 9 以降対応
     * 短所
-      * ネストした if は jd に軍配、こちらは全然ダメ
-      * inner class 外部参照
+      * ~ネストした if は jd に軍配、こちらは全然ダメ~ どうも複数の if else を一つにまとめすぎている
+        * for 中の if が continue になりがち
+      * 局所変数代入のインライン化をやりすぎている
+      * if else を三項演算子 ? : に変換もやりすぎているっぽい
+      * inner class 外部変数参照
+      * inner class が最後に配置される
       * ソースがない
+    * あと少し
+      * boxing が残っている
+      * static final 定数戻し
 
 ~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~
 
