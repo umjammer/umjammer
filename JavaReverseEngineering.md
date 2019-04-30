@@ -5,6 +5,7 @@
     * 長所
       * ~今のところ最強~
       * バイトコードをコメントで入れられる
+        * 最終確認はこれ
     * 短所
       * `Exception` 周りが下手、`finally` は絶望的
       * `switch` もダメダメ
@@ -22,45 +23,82 @@
       * `switch` も~~まあまあ~~
         * `break` が抜けてる気がするのだが
         * できない場合も多いな
+      * 人が書いたコードに近い
+        * `++` は人が書く場合後置が多いとか
+        * 単純な `if` `else` はきれいに出力される
       * 開発中
     * 短所
+      * boxing が残っている
+      * `for` 糖衣構文 50% くらいダメ
+      * local 変数重複、宣言場所
+      * 総称型
+      * inner class constructor
+      * inner class 外部変数参照, `final`
+      * `static final` 定数戻し
+      * `enum` function
+      * CUI がない
+      * ソースがない
+      * interface に abstract が残ってる
+    * 致命的
       * いまいち~~かなり~~信用出来ない
         * jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような
         * synchronized
         * switch に return 抜けあり
-      * for 糖衣構文
-      * local 変数重複、宣言場所
-      * 総称型
-      * inner class constructor
-      * inner class 外部変数参照
-      * static final 定数戻し
-      * enum function
-      * CUI がない
-      * ソースがない
+        * ネストした if else 中の continue が break になることがある
+      * ビットシフト代入をかっこ無しでインライン化しやがる
+      ```java
+      private final int d(int paramInt)
+      {
+          this.h &= 0x7C;
+          this.h |= paramInt >> 7;
+          paramInt = paramInt <<= 1 & 0xFF; // here!!!
+          this.h |= this.v[paramInt];
+          return paramInt;
+      ```
+      正解は    
+      ```java
+      private final int ASL(int i) 
+      {
+         P &= 0x7C;
+         P |= i >> 7;
+         i <<= 1;
+         i &= 0xFF;
+         P |= znTable[i];
+         return i;
+      }
+      ```
+
 
   * [cfr](https://www.benf.org/other/cfr/) (0.143)
     * 長所
       * 最強か？
       * Java 9 以降対応
     * 短所
-      * ~ネストした if は jd に軍配、こちらは全然ダメ~ どうも複数の if else を一つにまとめすぎている
-        * for 中の if が continue になりがち
+      * ~~ネストした if は jd に軍配、こちらは全然ダメ~~ どうも複数の if else を一つにまとめすぎている
+        * オプションでやめられれば最強なのに
+      * `for` 中の `if` が `continue` になりがち
       * 局所変数代入のインライン化をやりすぎている
-      * if else を三項演算子 ? : に変換もやりすぎているっぽい
+      * `if` `else` を三項演算子 `? :` に変換もやりすぎているっぽい
       * inner class 外部変数参照
+        * これはオプションで残せるっぽい TODO `-removeinnerclasssynthetics`
       * inner class が最後に配置される
       * ソースがない
     * あと少し
       * boxing が残っている
-      * static final 定数戻し
+      * `static final` 定数戻し
+      * `++` が全て後置
+    * 致命的
+      * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
-~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~
+~~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~~
 
 JD-core 1.0.0 だと jad を超えた感じがある。エラーが有ると空白を出力しやがるのでそこは他で。
 
-~多分 cfr > jad~
+~~多分 cfr > jad~~
 
-う〜ん、どれも一長一短だなぁ、 jad も inner class の外部参照関連で捨てきれない場面がある
+~~う〜ん、どれも一長一短だなぁ、~~ jad も inner class の外部参照関連で捨てきれない場面がある
+
+cfr のやりすぎを制御できれば最強
 
 # How To
 
@@ -557,8 +595,7 @@ public @interface UiThread {
 
 # Others #
 
-
-Eclipse のリファクタリング機能がこれほど活躍できる場面はないと思う。
+IDE のリファクタリング機能がこれほど活躍できる場面はないと思う。
 
 たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](http://codavaj.sourceforge.net/) を使用すればコピペで楽にコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
 
@@ -598,9 +635,18 @@ Eclipse のリファクタリング機能がこれほど活躍できる場面は
 
 ## 辞書の活用 ##
 
+ProGuard
 ```
 -packageobfuscationdictionary dic_file
 ```
+
+Enigma
+
+## 論理演算のつけ過ぎかっこを除去したい
+
+[JavaParser](https://github.com/javaparser/javaparser) の AST と cfr の内部構造を共通化して cfr の rewrite エンジンを使用するとか
+
+[正規表現だけでやってる](https://codegolf.stackexchange.com/questions/79436/remove-unnecessary-parentheses)けどこれでいけるのかなぁ？
 
 ## オープンソースが難読化されて組み込まれている場合 ##
 
