@@ -36,6 +36,7 @@
       * inner class 外部変数参照, `final`
       * `static final` 定数戻し
       * `enum` function
+      * `enum` `switch` で置換しきれていない
       * CUI がない
       * ソースがない
       * interface に abstract が残ってる
@@ -46,6 +47,8 @@
         * switch に return 抜けあり
         * ネストした if else 中の continue が break になることがある
       * ビットシフト代入をかっこ無しでインライン化しやがる
+      
+      jd
       ```java
       private final int d(int paramInt)
       {
@@ -68,7 +71,6 @@
       }
       ```
 
-
   * [cfr](https://www.benf.org/other/cfr/) (0.143)
     * 長所
       * 最強か？
@@ -87,6 +89,19 @@
       * boxing が残っている
       * `static final` 定数戻し
       * `++` が全て後置
+      * 配列の複合代入演算、jd はできるのに...
+
+      cfr
+      ```java
+      int[] arrn = loadsSinceStore;
+      int n = prevFetched.getSecond();
+      arrn[n] = arrn[n] - 1;
+      ```
+       正解は
+      ```java
+      loadsSinceStore[prevFetched.getSecond()] -= 1;
+      ```
+   
     * 致命的
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
@@ -156,7 +171,23 @@ TBD
  $ find . -name \*.class -exec jad -s .java -safe -space -r -nonlb -ff {} \;
 ```
 
+## Helper
+
+ * [SpotBugs](https://spotbugs.github.io/)
+   * cfr のやりすぎで null アクセスになるところを検出してくれる
+ * [infer](https://fbinfer.com/) TBD
+   * こいつも null アクセス検知用だが SpotBugs で十分な気が...
+ * [vavi.lang.instrumentation.PassClassFileTransformaer](https://github.com/umjammer/vavi-commons-sandbox/blob/master/src/main/java/vavix/lang/instrumentation/PassClassFileTransformer.java)
+   * 実行時にどのメソッドを通ったのかをトレースしてくれるので本物と比較しておかしいところを検出
+ * coverage tool
+   * TBD
+ * directory diff tool TBD
+   * Mac だと meld っぽいのだが、なんか動かん
+   * vimdiff TBD
+
 ## Hand Completion
+
+主に jad の話なので、最近は必要ないものが多い。
 
 ### for
 
