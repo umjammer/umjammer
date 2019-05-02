@@ -164,9 +164,9 @@ TBD
   * jad
     * オーバーロードのバインドミスを無くすために `-safe` オプションを付ける
       * 難読化されていない場合はしなくても多分大丈夫
+    * `-a` バイトコード付きコード出力
     * あとは好みのフォーマットオプション
       * TODO `-noctor`
-
 ```shell
  $ find . -name \*.class -exec jad -s .java -safe -space -r -nonlb -ff {} \;
 ```
