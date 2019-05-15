@@ -14,7 +14,7 @@ iPhone, android, Kibdle, iPad と次々に発表される新しいプラット�
 
 以下の Applet を題材にします。大昔どこからか拾ってきたものです。
 
-> https://github.com/umjammer/vavi-games-tetris/blob/235d764ad19e43b6824d4302f2bdcf5bee052952/tetris.java
+> https://github.com/umjammer/vavi-games-tetris/blob/7194d67aa62d5d6a5c2c67f5a066afb4391d58be/tetris.java
 
 典型的な Applet で一つのファイルになっています。もちろん MVC のカケラもありません。
 悪いと言っているのではないですよ。 Applet を作るといえば皆昔はこうしていたんですから。
