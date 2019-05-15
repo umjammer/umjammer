@@ -57,7 +57,7 @@ Recruit の [a3rt](https://a3rt.recruit-tech.co.jp/product/proofreadingAPI/) の
 
 さて全行やってみるか。制限かかりませんように...
 
-code tbd
+https://github.com/umjammer/vavi-util-screenscraping/blob/master/src/test/java/RecruitProofreadingV2.java
 
 ## 結果 2019-05-15
 
