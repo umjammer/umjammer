@@ -86,4 +86,4 @@ https://github.com/umjammer/vavi-util-screenscraping/blob/master/src/test/java/R
 <<[^\W^\p{Hiragana}^\p{Katakana}^〇^一^二^三^四^五^六^七^八^九^十]+>>
 ```
 
-1行目を含めて、更に 10 件見つけた。固有名詞をもっと頑張って学習して省いてくれればすごい有用なツールになりそう。
+昨日の分を含めて、更に 10 件見つけた。固有名詞をもっと頑張って学習して省いてくれればすごい有用なツールになりそう。
