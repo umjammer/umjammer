@@ -1,14 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>vavi</groupId>
   <artifactId>umjammer</artifactId>
-  <packaging>pom</packaging>
   <version>2.0.0</version>
+  <packaging>pom</packaging>
+
   <name>umjammer</name>
   <description>Umjammer Portal</description>
   <url>https://github.com/umjammer/umjammer</url>
   <inceptionYear>2008</inceptionYear>
+
   <distributionManagement>
     <repository>
       <id>internal.repo</id>
@@ -16,6 +19,7 @@
       <url>file://${project.build.directory}/mvn-repo</url>
     </repository>
   </distributionManagement>
+
   <build>
     <finalName>umjammer</finalName>
     <plugins>
@@ -38,28 +42,32 @@
           <includes><include>**/*</include></includes>
           <repositoryName>umjammer</repositoryName>                  <!-- github repo name -->
           <repositoryOwner>umjammer</repositoryOwner>                <!-- github username  -->
-<!--
+<!-- Whether to merge with the current tree or completely replace the tree that the commit points to
           <merge>true</merge>
 -->
         </configuration>
         <executions>
           <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
           <execution>
+            <phase>deploy</phase>
             <goals>
               <goal>site</goal>
             </goals>
-            <phase>deploy</phase>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+
   <repositories>
   </repositories>
+
   <dependencies>
   </dependencies>
+
   <properties>
     <!-- github server corresponds to entry in ~/.m2/settings.xml -->
     <github.global.server>github</github.global.server>
   </properties>
+
 </project>
