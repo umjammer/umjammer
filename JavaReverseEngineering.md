@@ -628,7 +628,7 @@ public @interface UiThread {
 
 IDE のリファクタリング機能がこれほど活躍できる場面はないと思う。
 
-たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](http://codavaj.sourceforge.net/) を使用すればコピペで楽にコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
+たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](https://github.com/umjammer/codavaj) を使用すればコピペで楽にコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
 
 慣れてくると、ああこれ jad のソースだとわかるようになる。例えば [jflash](http://java.net/projects/jflash/sources/svn/content/trunk/prj/jflash/src/org/jflash/DisplayList.java?rev=38) の 508 行目とか [local variables created by compiler](https://code.google.com/p/umjammer/wiki/JavaReverseEngineering?ts=1388518694&updated=JavaReverseEngineering#local_variables_created_by_compiler) に相当するのがわかる。それ以前に変数名でわかっちゃうけどね。よくもまあ抜け抜けとリバエンしたやつをメジャーサイトに公開するよなぁ？
 
