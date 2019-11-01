@@ -105,6 +105,8 @@
     * 致命的
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
+## まとめ
+
 ~~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~~
 
 JD-core 1.0.0 だと jad を超えた感じがある。エラーが有ると空白を出力しやがるのでそこは他で。
@@ -639,7 +641,7 @@ IDE のリファクタリング機能がこれほど活躍できる場面はな�
 ## やってしまったソース ##
 オーバーロードでミスる事を知らなかったときにリバエンした 50000 行くらいのコードがあるのだが、もちろんエラーは出ないし、なんとちゃんと動いてしまってるので、どこでミスってるのかが簡単に検出できない。結果のデータが違うので明らかにミスっているのは分かるのだが、~~どうしたものか...~~
 
-  * ~~call graph 作成とか？~~ → [作った](http://erik.doernenburg.com/2008/09/call-graph-visualisation-with-aspectj-and-dot/)けど、はっきり言って比較するのムリ
+  * ~~[call graph](http://erik.doernenburg.com/2008/09/call-graph-visualisation-with-aspectj-and-dot/) 作成とか？~~ → [作った](https://github.com/umjammer/vavi-commons-sandbox/blob/master/src/main/java/vavix/lang/instrumentation/CallGraphClassFileTransformer.java)けど、はっきり言って比較するのムリ
 
 ### 見つけた ###
 
