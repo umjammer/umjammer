@@ -71,7 +71,7 @@
       }
       ```
 
-  * [cfr](https://www.benf.org/other/cfr/) (0.143)
+  * [cfr](https://www.benf.org/other/cfr/) (0.145)
     * 長所
       * 最強か？
       * Java 9 以降対応
@@ -84,7 +84,7 @@
       * inner class 外部変数参照
         * これはオプションで残せるっぽい TODO `-removeinnerclasssynthetics`
       * inner class が最後に配置される
-      * ソースがない
+      * [~~ソースがない~~](https://github.com/leibnitz27/cfr)
     * あと少し
       * boxing が残っている
       * `static final` 定数戻し
@@ -187,7 +187,8 @@ TBD
 
 ## Hand Completion
 
-主に jad の話なので、最近は必要ないものが多い。
+<details>
+<summary>主に jad の話なので、最近は必要ないものが多い。</summary>
 
 ### for
 
@@ -623,6 +624,7 @@ completed
 public @interface UiThread {
 }
 ```
+</details>
 
 # Others #
 
