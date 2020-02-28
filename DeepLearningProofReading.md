@@ -104,3 +104,4 @@ https://github.com/umjammer/vavi-util-screenscraping/blob/master/src/test/java/R
 ![image](https://lh3.googleusercontent.com/BWtEQrYSyjIpdw6iRyXR3FD7803bZwGPLxiNsJ_bx3IJeQr8lDSfJKzIappdKvq2Az4hkqHgQattDhsoZqQpsP3MLXN5rX3BByq6H2aMW3mmOMFPwEWx4Z49DZjMW_3l8tDcbm43Hw=w2400)
 
 ものすごい精度だ。完璧なんじゃなかろうか？ディープラーニングいらんやんｗ
+(もちろんスキャンした小説が対象に限る話ではありますが）
