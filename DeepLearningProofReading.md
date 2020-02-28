@@ -87,3 +87,20 @@ https://github.com/umjammer/vavi-util-screenscraping/blob/master/src/test/java/R
 ```
 
 昨日の分を含めて、更に 10 件見つけた。固有名詞をもっと頑張って学習して省いてくれればすごい有用なツールになりそう。
+
+## 追記 2020-02-29
+
+[Sudachi](https://github.com/WorksApplications/Sudachi) を調べていたら oov という単語が出てきた。 out of vocabulary の略だそうだ。
+これってまさに校正対象のことじゃないの？と思って試してみた。
+
+青空文庫表記のタグやルビが鬱陶しいので先に除いておいて、漢字のみの oov を表示させてやる。
+
+[Program](TBD)
+
+### 結果
+
+めっちゃうまくいく!!!
+
+![image](https://lh3.googleusercontent.com/BWtEQrYSyjIpdw6iRyXR3FD7803bZwGPLxiNsJ_bx3IJeQr8lDSfJKzIappdKvq2Az4hkqHgQattDhsoZqQpsP3MLXN5rX3BByq6H2aMW3mmOMFPwEWx4Z49DZjMW_3l8tDcbm43Hw=w2400)
+
+ものすごい精度だ。完璧なんじゃなかろうか？ディープラーニングいらんやんｗ
