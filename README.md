@@ -16,6 +16,7 @@ Umjammer portal and the private maven repository
 
 # Topics
 
+* [OCR by Google Drive](https://github.com/umjammer/vavi-apps-fuse/wiki/GoogleDriveOCR) ![new](https://img.shields.io/badge/new-release-yellow)
 * [Proof Reading using Deep Learning](https://github.com/umjammer/umjammer/blob/wiki/DeepLearningProofReading.md)
 * [Java Reverse Engineering](https://github.com/umjammer/umjammer/blob/wiki/JavaReverseEngineering.md)
 * [Imagemagick Filter](https://github.com/umjammer/vavi-image-sandbox/wiki/ImageMagickFilter)
