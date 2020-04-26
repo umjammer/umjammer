@@ -3,7 +3,6 @@
 
   * [jad](http://www.varaneckas.com/jad) (1.5.8g)
     * 長所
-      * ~今のところ最強~
       * バイトコードをコメントで入れられる
         * 最終確認はこれ
     * 短所
@@ -14,9 +13,10 @@
       * inner class もちょっとおかしい
       * `synchronize` もダメ
       * `enum` 超面倒
+      * closed source
       * 開発終了？
 
-  * [JD](http://java-decompiler.github.io/) (core 1.0.0)
+  * [JD](https://github.com/java-decompiler/jd-core) (core 1.1.3)
     * 長所
       * 行番号を考慮できる
       * `Exception` はまあまあ
@@ -26,7 +26,7 @@
       * 人が書いたコードに近い
         * `++` は人が書く場合後置が多いとか
         * 単純な `if` `else` はきれいに出力される
-      * 開発中
+      * open source
     * 短所
       * boxing が残っている
       * `for` 糖衣構文 50% くらいダメ
@@ -38,7 +38,6 @@
       * `enum` function
       * `enum` `switch` で置換しきれていない
       * CUI がない
-      * ソースがない
       * interface に abstract が残ってる
     * 致命的
       * いまいち~~かなり~~信用出来ない
@@ -46,37 +45,14 @@
         * synchronized
         * switch に return 抜けあり
         * ネストした if else 中の continue が break になることがある
-      * ビットシフト代入をかっこ無しでインライン化しやがる
-      
-      jd
-      ```java
-      private final int d(int paramInt)
-      {
-          this.h &= 0x7C;
-          this.h |= paramInt >> 7;
-          paramInt = paramInt <<= 1 & 0xFF; // here!!!
-          this.h |= this.v[paramInt];
-          return paramInt;
-      ```
-      正解は    
-      ```java
-      private final int ASL(int i) 
-      {
-         P &= 0x7C;
-         P |= i >> 7;
-         i <<= 1;
-         i &= 0xFF;
-         P |= znTable[i];
-         return i;
-      }
-      ```
 
-  * [cfr](https://www.benf.org/other/cfr/) (0.145)
+  * [cfr](https://github.com/leibnitz27/cfr) (0.145)
     * 長所
       * 最強か？
       * Java 9 以降対応
+      * open source
     * 短所
-      * ~~ネストした if は jd に軍配、こちらは全然ダメ~~ どうも複数の if else を一つにまとめすぎている
+      * 複数の if else を一つにまとめすぎている
         * オプションでやめられれば最強なのに
       * `for` 中の `if` が `continue` になりがち
       * 局所変数代入のインライン化をやりすぎている
@@ -84,7 +60,6 @@
       * inner class 外部変数参照
         * これはオプションで残せるっぽい TODO `-removeinnerclasssynthetics`
       * inner class が最後に配置される
-      * [~~ソースがない~~](https://github.com/leibnitz27/cfr)
     * あと少し
       * boxing が残っている
       * `static final` 定数戻し
@@ -106,14 +81,6 @@
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
 ## まとめ
-
-~~jad で最初逆コンパイルしておかしいところを JD で補完していくのがいいと思う~~
-
-JD-core 1.0.0 だと jad を超えた感じがある。エラーが有ると空白を出力しやがるのでそこは他で。
-
-~~多分 cfr > jad~~
-
-~~う〜ん、どれも一長一短だなぁ、~~ jad も inner class の外部参照関連で捨てきれない場面がある
 
 cfr のやりすぎを制御できれば最強
 
@@ -634,8 +601,6 @@ IDE のリファクタリング機能がこれほど活躍できる場面はな�
 
 たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](https://github.com/umjammer/codavaj) を使用すればコピペで楽にコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
 
-慣れてくると、ああこれ jad のソースだとわかるようになる。例えば [jflash](http://java.net/projects/jflash/sources/svn/content/trunk/prj/jflash/src/org/jflash/DisplayList.java?rev=38) の 508 行目とか [local variables created by compiler](https://code.google.com/p/umjammer/wiki/JavaReverseEngineering?ts=1388518694&updated=JavaReverseEngineering#local_variables_created_by_compiler) に相当するのがわかる。それ以前に変数名でわかっちゃうけどね。よくもまあ抜け抜けとリバエンしたやつをメジャーサイトに公開するよなぁ？
-
 # Todo
 
 ## やってしまったソース ##
@@ -670,12 +635,14 @@ IDE のリファクタリング機能がこれほど活躍できる場面はな�
 
 ## 辞書の活用 ##
 
-ProGuard
+### ProGuard
 ```
 -packageobfuscationdictionary dic_file
 ```
 
-Enigma
+### Enigma
+
+TBD
 
 ## 論理演算のつけ過ぎかっこを除去したい
 
