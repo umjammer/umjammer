@@ -1,6 +1,6 @@
-# Scripting on Mac OS X #
+# Scripting on Mac OS X
 
-## Japanese Settings ##
+## Japanese Settings
 
 | command | disable readline (for rlwrap) | enable Japanese | i18n | comment |
 |:--------|:------------------------------|:----------------|:-----|:--------|
@@ -9,20 +9,20 @@
 | irb     | see below                     |                 | OK   |         |
 | gosh    | n/a                           |                 | OK   |         |
 |         |                               |                 |      |         |
-| scala   | -Xnojline                     |                 | OK   |         |
-| groovysh | --terminal=none               | -Dfile.encoding=utf-8 | NG   | need to modify source |
-| jython  | export JYTHON\_OPTS=-Dpython.console=org.python.util.InteractiveConsole |                 | OK   |         |
-| jirb    | --noreadline                  | -Ku             | OK   |         |
-| clj     | n/a                           | -Dfile.encoding=utf-8 | OK   |         |
-| sisc    | n/a?                          | -Dfile.encoding=utf-8 | OK   | see below |
-| abcl    | n/a?                          | -Dfile.encoding=utf-8 | OK   |         |
-| tuprolog | n/a?                          | -Dfile.encoding=utf-8 | OK   |         |
-| beansh  | n/a?                          | -Dfile.encoding=utf-8 |	OK   |         |
-| rhino   | n/a?                          | -Dfile.encoding=utf-8 | OK   |         |
-| pnuts   | n/a?                          | -Dfile.encoding=utf-8 | OK   |         |
+| scala   | `-Xnojline`                   |                 | OK   |         |
+| groovysh | `--terminal=none`             | `-Dfile.encoding=utf-8` | NG   | need to modify source |
+| jython  | `export JYTHON_OPTS=-Dpython.console=org.python.util.InteractiveConsole` |                 | OK   |         |
+| jirb    | `--noreadline`                | `-Ku`             | OK   |         |
+| clj     | n/a                           | `-Dfile.encoding=utf-8` | OK   |         |
+| sisc    | n/a?                          | `-Dfile.encoding=utf-8` | OK   | see below |
+| abcl    | n/a?                          | `-Dfile.encoding=utf-8` | OK   |         |
+| tuprolog | n/a?                          | `-Dfile.encoding=utf-8` | OK   |         |
+| beansh  | n/a?                          | `-Dfile.encoding=utf-8` |	OK   |         |
+| rhino   | n/a?                          | `-Dfile.encoding=utf-8` | OK   |         |
+| pnuts   | n/a?                          | `-Dfile.encoding=utf-8` | OK   |         |
 
   * sisc
-```
+```diff
 sisc.reader.CharUtil#charToEscapedIfNecessary
 diff -r1.9 CharUtil.java
 100c100,101
@@ -32,7 +32,7 @@ diff -r1.9 CharUtil.java
 >             if (c < ' ') return "u"+charToHex(c);
 ```
   * irb
-```
+```shell
 ~/.irbrc
 IRB.conf[:USE_READLINE] = false
 ```
