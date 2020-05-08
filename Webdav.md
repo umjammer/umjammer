@@ -18,7 +18,7 @@ implements Java Webdav server which can deal Java7 file system as contents
  
 ### [Jackrabbit](http://jackrabbit.apache.org/jcr/index.html)
 
- * jcr -> too match
+ * jcr -> too much
  * jackrabbit oak -> ???
  * SimpleWebDavServlet -> depends on jcr
  * 3rd party
