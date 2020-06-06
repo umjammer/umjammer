@@ -15,6 +15,7 @@ implements Java Webdav server which can deal Java7 file system as contents
 
  * annotation based!
  * -> NPE ???
+ * adopted by [cyberduck webdav](https://github.com/iterate-ch/cyberduck/tree/master/webdav)
  
 ### [Jackrabbit](http://jackrabbit.apache.org/jcr/index.html)
 
