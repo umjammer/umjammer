@@ -82,7 +82,7 @@
 
 ## まとめ
 
-cfr のやりすぎを制御できれば最強
+cfr がやりすぎを制御できれば最強
 
 # How To
 
@@ -124,9 +124,9 @@ $ proguard.sh @proguard.txt -injars in.jar -outjar out.jar
 
 ### using mapper
 
-TBD
+ * Tiny-Remapper
 
- * https://github.com/FabricMC/Enigma
+ https://gist.github.com/umjammer/810a8cdf0f0d9c2617b1a5d7a256e0a8
 
 ## Decompile
 
@@ -146,7 +146,7 @@ TBD
    * cfr のやりすぎで null アクセスになるところを検出してくれる
  * [infer](https://fbinfer.com/) TBD
    * こいつも null アクセス検知用だが SpotBugs で十分な気が...
- * [vavi.lang.instrumentation.PassClassFileTransformaer](https://github.com/umjammer/vavi-commons-sandbox/blob/master/src/main/java/vavix/lang/instrumentation/PassClassFileTransformer.java)
+ * [vavi.lang.instrumentation.PassClassFileTransformaer](https://github.com/umjammer/vavi-commons/blob/master/src/main/java/vavix/lang/instrumentation/PassClassFileTransformer.java)
    * 実行時にどのメソッドを通ったのかをトレースしてくれるので本物と比較しておかしいところを検出
  * coverage tool
    * TBD
@@ -599,14 +599,14 @@ public @interface UiThread {
 
 IDE のリファクタリング機能がこれほど活躍できる場面はないと思う。
 
-たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](https://github.com/umjammer/codavaj) を使用すればコピペで楽にコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
+たまに Javadoc だけ公開されている場合がある。その場合は [Codavaj](https://github.com/umjammer/codavaj) を使用すれば自動でコメントが付けられる。おまけに正しい引数名が得られるので、そこから芋づる式に内部の解析が進むこともある。
 
 # Todo
 
 ## やってしまったソース ##
 オーバーロードでミスる事を知らなかったときにリバエンした 50000 行くらいのコードがあるのだが、もちろんエラーは出ないし、なんとちゃんと動いてしまってるので、どこでミスってるのかが簡単に検出できない。結果のデータが違うので明らかにミスっているのは分かるのだが、~~どうしたものか...~~
 
-  * ~~[call graph](http://erik.doernenburg.com/2008/09/call-graph-visualisation-with-aspectj-and-dot/) 作成とか？~~ → [作った](https://github.com/umjammer/vavi-commons-sandbox/blob/master/src/main/java/vavix/lang/instrumentation/CallGraphClassFileTransformer.java)けど、はっきり言って比較するのムリ
+  * ~~[call graph](http://erik.doernenburg.com/2008/09/call-graph-visualisation-with-aspectj-and-dot/) 作成とか？~~ → [作った](https://github.com/umjammer/vavi-commons/blob/master/src/main/java/vavix/lang/instrumentation/CallGraphClassFileTransformer.java)けど、はっきり言って比較するのムリ
 
 ### 見つけた ###
 
