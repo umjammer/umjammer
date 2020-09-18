@@ -41,14 +41,14 @@
       * interface に abstract が残ってる
     * 致命的
       * いまいち~~かなり~~信用出来ない
-        * jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような
+        * ~~jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような~~
         * synchronized
         * switch に return 抜けあり
         * ネストした if else 中の continue が break になることがある
 
-  * [cfr](https://github.com/leibnitz27/cfr) (0.145)
+  * [cfr](https://github.com/leibnitz27/cfr) (0.150)
     * 長所
-      * 最強か？
+      * ~~最強か？~~
       * Java 9 以降対応
       * open source
     * 短所
@@ -60,6 +60,7 @@
       * inner class 外部変数参照
         * これはオプションで残せるっぽい TODO `-removeinnerclasssynthetics`
       * inner class が最後に配置される
+      * finally block (jd-core のほうが遥かにマシ)
     * あと少し
       * boxing が残っている
       * `static final` 定数戻し
@@ -80,9 +81,18 @@
     * 致命的
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
+ * [fernflower](https://github.com/fesh0r/fernflower) f61e659
+
+    * 最強説 👑
+    * -ren=1 で deobfuscate した場合  interface の override が外れる
+
+ * [procyon](https://github.com/ststeiger/procyon)
+ 
+    * 開発中止？
+
 ## まとめ
 
-cfr がやりすぎを制御できれば最強
+fernflower ほぼ完璧
 
 # How To
 
@@ -127,6 +137,12 @@ $ proguard.sh @proguard.txt -injars in.jar -outjar out.jar
  * Tiny-Remapper
 
  https://gist.github.com/umjammer/810a8cdf0f0d9c2617b1a5d7a256e0a8
+
+### deobfuscator
+
+ * [deobfuscator](https://github.com/java-deobfuscator/deobfuscator)
+ 
+ interface の override が外れる
 
 ## Decompile
 
