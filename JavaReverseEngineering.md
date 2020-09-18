@@ -81,10 +81,10 @@
     * 致命的
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
- * [fernflower](https://github.com/fesh0r/fernflower) f61e659
+ * [fernflower](https://github.com/fesh0r/fernflower) (f61e659)
 
     * 最強説 👑
-    * -ren=1 で deobfuscate した場合  interface の override が外れる
+    * `-ren=1` で deobfuscate した場合  interface の override が外れる
 
  * [procyon](https://github.com/ststeiger/procyon)
  
