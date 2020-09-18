@@ -84,7 +84,6 @@
  * [fernflower](https://github.com/fesh0r/fernflower) (f61e659)
 
     * 最強説 👑
-    * `-ren=1` で deobfuscate した場合  interface の override が外れる
 
  * [procyon](https://github.com/ststeiger/procyon)
  
@@ -141,8 +140,6 @@ $ proguard.sh @proguard.txt -injars in.jar -outjar out.jar
 ### deobfuscator
 
  * [deobfuscator](https://github.com/java-deobfuscator/deobfuscator)
- 
- interface の override が外れる
 
 ## Decompile
 
