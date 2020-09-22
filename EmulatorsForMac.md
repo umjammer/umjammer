@@ -1,8 +1,10 @@
-# PC #
+# PC
 
-## PC-8801 ##
+## PC-8801
 
-### j80 ###
+### quasi88
+
+### j80
 ```
  $ java -jar j80.jar cfg/PC-8801mkIISR.cfg
 ```
@@ -30,19 +32,26 @@ OPTION  -power  -powdsk -smooth=1       -bus=0  -prn=0  -tape=4
 
 ```
 
-## PC-9801 ##
+## PC-9801
 
-### NP2 for OSX ###
+### NP2 for OSX
 
   * HID Utilities 必要
   * コンパイルはできたが動かん...orz
 
-### xnp2 ###
+### xnp2
 
   * 素直にこちらを使う
   * サウンドとかも OK
 
-### T98next w/ wine ###
+### T98next w/ wine
 
   * ~~サウンドが鳴らない？~~
     * wine のバージョンが悪かったみたい
+
+### np2 variants
+
+ * https://github.com/AZO234/NP2kai
+ * https://github.com/amuramatsu/np2-mod
+ * https://github.com/rururutan/np2s
+ 
