@@ -1,12 +1,17 @@
+currently sdl1 doesn't work on macos
+
 # PC
 
 ## PC-8801
 
 ### quasi88
 
-### j80
+* https://github.com/barbeque/quasi88-port (40c033b)
+
+### j80 (r6_117)
+
 ```
- $ java -jar j80.jar cfg/PC-8801mkIISR.cfg
+ $ java -jar j80.jar j88.cfg
 ```
 | **j80** | **quasi88** | **m88** |
 |:--------|:------------|:--------|
@@ -22,10 +27,10 @@
 |        JIS2    |N88KNJ2.ROM  |KANJI2.ROM |
 |        DISK    |N88SUB.ROM   |DISK.ROM   |
 
-`cfg/PC-8801mkIISR.cfg`
+`j88.cfg`
 ```
-// separator must be tab!
-OPTION  -power  -powdsk -smooth=1       -bus=0  -prn=0  -tape=4
+	FONT	.../FONT.ROM
+//	FONT	.../FONT.ROM		0x1000	// ★	漢字ROMを流用する場合
 
 // use line at last
 -D88    disk/Foo.D88       1
@@ -36,22 +41,31 @@ OPTION  -power  -powdsk -smooth=1       -bus=0  -prn=0  -tape=4
 
 ### NP2 for OSX
 
-  * HID Utilities 必要
-  * コンパイルはできたが動かん...orz
+  * ~~HID Utilities 必要~~
+  * ~~コンパイルはできたが動かん...orz~~
+  * used mac api become obsolated
+  * -> NP2Kai
 
 ### xnp2
 
-  * 素直にこちらを使う
-  * サウンドとかも OK
+  * ~~素直にこちらを使う~~
+  * ~~サウンドとかも OK~~
+  * x11 doesn't work on macos
+  * sdl1 doesn't work on macos
+  * -> NP2kai
 
 ### T98next w/ wine
 
   * ~~サウンドが鳴らない？~~
-    * wine のバージョンが悪かったみたい
+    * ~~wine のバージョンが悪かったみたい~~
+    * now wine64 needs 64bit windows code
 
 ### np2 variants
 
- * https://github.com/AZO234/NP2kai
- * https://github.com/amuramatsu/np2-mod
- * https://github.com/rururutan/np2s
+ * https://github.com/AZO234/NP2kai 👑
+ * https://github.com/rururutan/np2s (sound library updated)
+ 
+### NP2Kai
+
+
  
