@@ -1,4 +1,4 @@
-# EmulatorsForMac
+# Emulators For Mac
 
 currently sdl1 doesn't work on macos
 
@@ -46,6 +46,7 @@ currently sdl1 doesn't work on macos
   * ~~HID Utilities 必要~~
   * ~~コンパイルはできたが動かん...orz~~
   * used mac api become obsolated
+  * np2 doesn't support protected mode
   * -> NP2Kai
 
 ### xnp2
@@ -54,6 +55,7 @@ currently sdl1 doesn't work on macos
   * ~~サウンドとかも OK~~
   * x11 doesn't work on macos
   * sdl1 doesn't work on macos
+  * np2 doesn't support protected mode
   * -> NP2kai
 
 ### T98next w/ wine
@@ -71,6 +73,7 @@ currently sdl1 doesn't work on macos
  
  * https://github.com/AZO234/NP2kai c38a5b2
  * patch https://gist.github.com/umjammer/c7e8b4ea5a59a40f61b5b8133e27aaa3
+ * `mona.ttf` is the most suitable font in my env (sazanami-gothic is not beautiful)
  
  ```
  $ uname -a
@@ -84,4 +87,3 @@ currently sdl1 doesn't work on macos
  $ cmake -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl ..
  $ make
  ```
- 
