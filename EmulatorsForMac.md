@@ -1,3 +1,5 @@
+# EmulatorsForMac
+
 currently sdl1 doesn't work on macos
 
 # PC
