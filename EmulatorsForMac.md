@@ -66,6 +66,20 @@ currently sdl1 doesn't work on macos
  * https://github.com/rururutan/np2s (sound library updated)
  
 ### NP2Kai
-
-
+ 
+ * https://github.com/AZO234/NP2kai c38a5b2
+ * patch https://gist.github.com/umjammer/c7e8b4ea5a59a40f61b5b8133e27aaa3
+ 
+ ```
+ $ uname -a
+ Darwin nsanomac4 19.6.0 Darwin Kernel Version 19.6.0: Thu Jun 18 20:49:00 PDT 2020; root:xnu-6153.141.1~1/RELEASE_X86_64 x86_64 i386 iMac17,1 Darwin
+ $ brew install openssl sdl2 sdl2_ttf sdl2_mixer
+ $ git clone ...
+ $ cd NP2kai
+ $ patch ...
+ $ mkdir build
+ $ cd build
+ $ cmake -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl ..
+ $ make
+ ```
  
