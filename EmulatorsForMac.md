@@ -62,7 +62,7 @@ currently sdl1 doesn't work on macos
 
   * ~~サウンドが鳴らない？~~
     * ~~wine のバージョンが悪かったみたい~~
-    * now wine64 needs 64bit windows code
+  * now wine64 needs 64bit windows code
 
 ### np2 variants
 
