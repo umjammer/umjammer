@@ -45,7 +45,7 @@ currently sdl1 doesn't work on macos
 
   * ~~HID Utilities 必要~~
   * ~~コンパイルはできたが動かん...orz~~
-  * used mac api become obsolated
+  * used mac obsolated api
   * np2 doesn't support protected mode
   * -> NP2Kai
 
@@ -53,7 +53,7 @@ currently sdl1 doesn't work on macos
 
   * ~~素直にこちらを使う~~
   * ~~サウンドとかも OK~~
-  * x11 doesn't work on macos
+  * x11 doesn't work on macos catalina
   * sdl1 doesn't work on macos
   * np2 doesn't support protected mode
   * -> NP2kai
