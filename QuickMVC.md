@@ -28,7 +28,7 @@ Java 固有の Applet というプラットフォームを抜きます。今回�
 ```
  init(), start(), stop(), destroy(), KeyLitener
 ```
- https://github.com/umjammer/vavi-games-tetris/commit/4d694246b7c67b6d6bdb67c2c381705d574f71d7?diff=split#diff-f435b399ce7f286aeee6805954eeadc9
+ https://github.com/umjammer/vavi-games-tetris/commit/4d694246b7c67b6d6bdb67c2c381705d574f71d7?diff=split#diff-f435b399ce7f286aeee6805954eeadc9&diff=split
 
 抜いた Applet は現在こんな感じです。
 
@@ -44,11 +44,11 @@ repaint(), drawImage(), loopClip(), stopClip()
 ```
 ですべて外出しすることができます。
 
- https://github.com/umjammer/vavi-games-tetris/commit/6035a22fb5ee2784e269f2bd5f6111a3f74a7ab7?diff=split#diff-f435b399ce7f286aeee6805954eeadc9
+ https://github.com/umjammer/vavi-games-tetris/commit/6035a22fb5ee2784e269f2bd5f6111a3f74a7ab7?diff=split#diff-f435b399ce7f286aeee6805954eeadc9&diff=split
 
 外出しした View は Applet 側で実装してやります。
 
- https://github.com/umjammer/vavi-games-tetris/commit/6035a22fb5ee2784e269f2bd5f6111a3f74a7ab7#diff-9db71d3bd9fbcdb5f207e5f78f9912c4
+ https://github.com/umjammer/vavi-games-tetris/commit/6035a22fb5ee2784e269f2bd5f6111a3f74a7ab7#diff-9db71d3bd9fbcdb5f207e5f78f9912c4&diff=split
 
 ### 3. Controller を外出しする ###
 
@@ -59,7 +59,7 @@ repaint(), drawImage(), loopClip(), stopClip()
  up(), down(), left(), right(), rotate()
 ```
 
- https://github.com/umjammer/vavi-games-tetris/commit/fd622e0268b8cce798c0238b18a9044a1e89f0ef#diff-f435b399ce7f286aeee6805954eeadc9
+ https://github.com/umjammer/vavi-games-tetris/commit/fd622e0268b8cce798c0238b18a9044a1e89f0ef#diff-f435b399ce7f286aeee6805954eeadc9&diff=split
 
 この時点で Tetris クラスには import 文がなくなりました。完全なモデルクラスになったわけです。(Thread とか細かいことは言わないw)
 
