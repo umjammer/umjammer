@@ -2,10 +2,10 @@
 # Tools
 
   * [jad](http://www.varaneckas.com/jad) (1.5.8g)
-    * 長所
-      * バイトコードをコメントで入れられる
-        * 最終確認はこれ
-    * 短所
+    * Pros
+      * byte codes as inline comments
+        * for final confirmation
+    * Cons
       * `Exception` 周りが下手、`finally` は絶望的
       * `switch` もダメダメ
       * `for`, `while` の扱いが逆なんじゃない？
@@ -14,11 +14,11 @@
       * `synchronize` もダメ
       * `enum` 超面倒
       * closed source
-      * 開発終了？
+      * discontinued？
 
   * [JD](https://github.com/java-decompiler/jd-core) (core 1.1.3)
-    * 長所
-      * 行番号を考慮できる
+    * Pros
+      * enable to keep original line numbers 🔵
       * `Exception` はまあまあ
       * `switch` も~~まあまあ~~
         * `break` が抜けてる気がするのだが
@@ -27,7 +27,7 @@
         * `++` は人が書く場合後置が多いとか
         * 単純な `if` `else` はきれいに出力される
       * open source
-    * 短所
+    * Cons
       * boxing が残っている
       * `for` 糖衣構文 50% くらいダメ
       * local 変数重複、宣言場所
@@ -39,7 +39,7 @@
       * `enum` `switch` で置換しきれていない
       * CUI がない
       * interface に abstract が残ってる
-    * 致命的
+    * Fatal
       * いまいち~~かなり~~信用出来ない
         * ~~jad はうまく行かなかったところに byte code っぽいものを残すのだが、JD は適当にエラーのないコードを出力してるような~~
         * synchronized
@@ -47,11 +47,11 @@
         * ネストした if else 中の continue が break になることがある
 
   * [cfr](https://github.com/leibnitz27/cfr) (0.150)
-    * 長所
-      * ~~最強か？~~
-      * Java 9 以降対応
+    * Pros
+      * ~~almighty？~~
+      * support after Java 9
       * open source
-    * 短所
+    * Cons
       * 複数の if else を一つにまとめすぎている
         * オプションでやめられれば最強なのに
       * `for` 中の `if` が `continue` になりがち
@@ -65,31 +65,33 @@
       * boxing が残っている
       * `static final` 定数戻し
       * `++` が全て後置
-      * 配列の複合代入演算、jd はできるのに...
-
-      cfr
-      ```java
-      int[] arrn = loadsSinceStore;
-      int n = prevFetched.getSecond();
-      arrn[n] = arrn[n] - 1;
-      ```
-       正解は
-      ```java
-      loadsSinceStore[prevFetched.getSecond()] -= 1;
-      ```
+      * 配列の複合代入演算、jd はできるのに...<br/>
+        cfr
+        ```java
+        int[] arrn = loadsSinceStore;
+        int n = prevFetched.getSecond();
+        arrn[n] = arrn[n] - 1;
+        ```
+         correctly
+        ```java
+        loadsSinceStore[prevFetched.getSecond()] -= 1;
+        ```
    
-    * 致命的
+    * Fatal
       * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
 
  * [fernflower](https://github.com/fesh0r/fernflower) (f61e659)
 
-    * 最強説 👑
+    * almighty 👑
 
  * [procyon](https://github.com/ststeiger/procyon)
  
-    * 開発中止？
+    * Pros
+      * enable to keep original line numbers 🔵
+    * Cons
+      * discontinued？
 
-## まとめ
+## Conclusion
 
 fernflower ほぼ完璧
 
@@ -103,7 +105,7 @@ fernflower ほぼ完璧
 
 ### using obfuscator
 
-難読化を解除するために難読化ツールを使用する。
+using obfuscator to de-obfuscate
 
   * [ProGuard](http://proguard.sourceforge.net/)
     * method overload を積極的にしているのを解除する (`-useuniqueclassmembernames`)
