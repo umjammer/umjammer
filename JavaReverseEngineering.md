@@ -13,12 +13,12 @@
       * inner class もちょっとおかしい
       * `synchronize` もダメ
       * `enum` 超面倒
-      * closed source
+      * closed source 👎
       * discontinued？
 
   * [JD](https://github.com/java-decompiler/jd-core) (core 1.1.3)
     * Pros
-      * enable to keep original line numbers 🔵
+      * enable to keep original line numbers 👍
       * `Exception` はまあまあ
       * `switch` も~~まあまあ~~
         * `break` が抜けてる気がするのだが
@@ -78,7 +78,7 @@
         ```
    
     * Fatal
-      * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる
+      * 上述の状態構文をまとめすぎるので `instanceof` で確認後キャストして使用するとか `null` チェック後代入が壊れる 👎
 
  * [fernflower](https://github.com/fesh0r/fernflower) (f61e659)
 
@@ -87,7 +87,7 @@
  * [procyon](https://github.com/ststeiger/procyon)
  
     * Pros
-      * enable to keep original line numbers 🔵
+      * enable to keep original line numbers 👍
     * Cons
       * discontinued？
 
