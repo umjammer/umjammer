@@ -95,7 +95,7 @@ https://github.com/umjammer/vavi-util-screenscraping/blob/master/src/test/java/R
 
 青空文庫表記のタグやルビが鬱陶しいので先に除いておいて、漢字のみの oov を表示させてやる。
 
-[https://github.com/umjammer/vavi-speech/blob/master/src/test/java/Test14.java](https://github.com/umjammer/vavi-speech/blob/master/src/test/java/Test14.java)
+https://github.com/umjammer/vavi-speech/blob/master/src/test/java/SudachiTest.java
 
 ### 結果
 
